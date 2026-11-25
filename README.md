@@ -4,7 +4,7 @@ Buy low, earn your way into private island markets, and sell before your Rots ex
 
 [Play it](https://rotfolio.pages.dev)
 
-Demo video: VIDEO_URL_TODO
+Demo video: https://youtu.be/RJ_qkN__P2o
 
 ## Who it's for
 
