@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rotfolio</title>
+    <style>
+      html { color-scheme: dark; background: #0c1427; color: #f8f2e7; }
+      body { margin: 0; }
+      #startup {
+        display: grid;
+        place-content: center;
+        min-height: 100vh;
+        min-height: 100svh;
+        text-align: center;
+        font: 1rem system-ui, sans-serif;
+      }
+      #startup strong { font: 700 2rem Georgia, serif; }
+      #startup span { color: #ffc869; }
+      #startup p { margin: .5rem 0 0; color: #b9c6dc; }
+    </style>
+  </head>
+  <body>
+    <div id="root">
+      <div id="startup" role="status">
+        <strong>Rotfolio<span>.</span></strong>
+        <p>Loading…</p>
+      </div>
+    </div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

@@ -1,0 +1,30 @@
+{
+  "name": "rotfolio",
+  "version": "0.1.0",
+  "private": true,
+  "engines": {
+    "node": ">=20"
+  },
+  "workspaces": [
+    "app"
+  ],
+  "dependencies": {
+    "@coral-xyz/anchor": "0.32.1",
+    "@magicblock-labs/ephemeral-rollups-sdk": "0.18.0",
+    "@solana/web3.js": "^1.98.0"
+  },
+  "devDependencies": {
+    "@types/mocha": "^10.0.10",
+    "@types/node": "^22.20.5",
+    "mocha": "^11.8.0",
+    "ts-mocha": "^11.1.0",
+    "ts-node": "10.9.2",
+    "tweetnacl": "^1.0.3",
+    "typescript": "~5.9.3"
+  },
+  "scripts": {
+    "test": "ts-mocha -p tsconfig.json tests/trade-feedback.ts",
+    "demo:week": "ts-node --project tsconfig.json scripts/demo-week.ts",
+    "relay:devnet": "ts-node --project tsconfig.json scripts/week-relay.ts"
+  }
+}

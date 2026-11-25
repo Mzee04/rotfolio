@@ -1,0 +1,9 @@
+/keys/
+.env*
+target/
+node_modules/
+dist/
+/.anchor/
+/.toolchain/
+/.wrangler/
+.DS_Store

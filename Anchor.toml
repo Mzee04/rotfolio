@@ -1,0 +1,11 @@
+[toolchain]
+anchor_version = "1.0.2"
+solana_version = "4.0.0"
+package_manager = "npm"
+
+[programs.devnet]
+rotfolio = "9czd3zpazBa4fLBcNihWyKEgeKkZ4K8xEdoMWeY5Zj9b"
+
+[provider]
+cluster = "Devnet"
+wallet = "keys/deployer.json"

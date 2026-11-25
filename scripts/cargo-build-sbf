@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+project_dir="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")/.." && pwd)"
+builder="${CARGO_HOME:-$project_dir/.toolchain/cargo}/bin/cargo-build-sbf"
+
+# Anchor 1.0.2 prepends this version, which predates the installed builder's SBPFv3 default.
+if [[ "${1:-}" == build-sbf && "${2:-}" == --tools-version && "${3:-}" == v1.52 ]]; then
+  shift 3
+  exec "$builder" build-sbf "$@"
+fi
+
+exec "$builder" "$@"

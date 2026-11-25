@@ -1,0 +1,1938 @@
+{
+  "address": "9czd3zpazBa4fLBcNihWyKEgeKkZ4K8xEdoMWeY5Zj9b",
+  "metadata": {
+    "name": "rotfolio",
+    "version": "0.1.0",
+    "spec": "0.1.0"
+  },
+  "instructions": [
+    {
+      "name": "buy",
+      "discriminator": [
+        102,
+        6,
+        61,
+        18,
+        1,
+        218,
+        235,
+        234
+      ],
+      "accounts": [
+        {
+          "name": "signer",
+          "signer": true
+        },
+        {
+          "name": "week",
+          "relations": [
+            "player",
+            "island"
+          ]
+        },
+        {
+          "name": "player",
+          "writable": true
+        },
+        {
+          "name": "island"
+        }
+      ],
+      "args": [
+        {
+          "name": "qty",
+          "type": "u16"
+        }
+      ]
+    },
+    {
+      "name": "close_gate",
+      "discriminator": [
+        52,
+        137,
+        245,
+        201,
+        19,
+        245,
+        33,
+        245
+      ],
+      "accounts": [
+        {
+          "name": "owner",
+          "signer": true,
+          "relations": [
+            "island",
+            "owner_player"
+          ]
+        },
+        {
+          "name": "week",
+          "writable": true,
+          "relations": [
+            "island",
+            "owner_player",
+            "visitor_player"
+          ]
+        },
+        {
+          "name": "island",
+          "writable": true
+        },
+        {
+          "name": "owner_player",
+          "writable": true
+        },
+        {
+          "name": "visitor_player",
+          "writable": true
+        },
+        {
+          "name": "island_permission",
+          "writable": true
+        },
+        {
+          "name": "gate_pass",
+          "writable": true
+        },
+        {
+          "name": "gate_permission",
+          "writable": true
+        },
+        {
+          "name": "rollup",
+          "accounts": [
+            {
+              "name": "permission_program",
+              "address": "ACLseoPoyC3cBqoUtkbjZ4aDrkurZW86v19pXz2XQnp1"
+            },
+            {
+              "name": "ephemeral_vault",
+              "writable": true,
+              "address": "MagicVau1t999999999999999999999999999999999"
+            },
+            {
+              "name": "magic_program",
+              "address": "Magic11111111111111111111111111111111111111"
+            }
+          ]
+        }
+      ],
+      "args": [
+        {
+          "name": "visitor",
+          "type": "pubkey"
+        }
+      ]
+    },
+    {
+      "name": "create_week",
+      "discriminator": [
+        29,
+        117,
+        190,
+        214,
+        38,
+        67,
+        239,
+        45
+      ],
+      "accounts": [
+        {
+          "name": "creator",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "week",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  119,
+                  101,
+                  101,
+                  107
+                ]
+              },
+              {
+                "kind": "arg",
+                "path": "week_id"
+              }
+            ]
+          }
+        },
+        {
+          "name": "island0",
+          "writable": true
+        },
+        {
+          "name": "island1",
+          "writable": true
+        },
+        {
+          "name": "island2",
+          "writable": true
+        },
+        {
+          "name": "island3",
+          "writable": true
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        }
+      ],
+      "args": [
+        {
+          "name": "week_id",
+          "type": "u64"
+        },
+        {
+          "name": "tick_ms",
+          "type": "u32"
+        }
+      ]
+    },
+    {
+      "name": "delegate_island",
+      "discriminator": [
+        105,
+        62,
+        24,
+        206,
+        95,
+        118,
+        30,
+        37
+      ],
+      "accounts": [
+        {
+          "name": "creator",
+          "writable": true,
+          "signer": true,
+          "relations": [
+            "week"
+          ]
+        },
+        {
+          "name": "week",
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  119,
+                  101,
+                  101,
+                  107
+                ]
+              },
+              {
+                "kind": "arg",
+                "path": "week_id"
+              }
+            ]
+          }
+        },
+        {
+          "name": "buffer_island",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  98,
+                  117,
+                  102,
+                  102,
+                  101,
+                  114
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "island"
+              }
+            ],
+            "program": {
+              "kind": "const",
+              "value": [
+                128,
+                21,
+                250,
+                6,
+                53,
+                216,
+                33,
+                99,
+                63,
+                141,
+                137,
+                130,
+                217,
+                77,
+                65,
+                34,
+                68,
+                164,
+                225,
+                98,
+                41,
+                213,
+                244,
+                148,
+                64,
+                32,
+                162,
+                24,
+                114,
+                246,
+                225,
+                58
+              ]
+            }
+          }
+        },
+        {
+          "name": "delegation_record_island",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  100,
+                  101,
+                  108,
+                  101,
+                  103,
+                  97,
+                  116,
+                  105,
+                  111,
+                  110
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "island"
+              }
+            ],
+            "program": {
+              "kind": "account",
+              "path": "delegation_program"
+            }
+          }
+        },
+        {
+          "name": "delegation_metadata_island",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  100,
+                  101,
+                  108,
+                  101,
+                  103,
+                  97,
+                  116,
+                  105,
+                  111,
+                  110,
+                  45,
+                  109,
+                  101,
+                  116,
+                  97,
+                  100,
+                  97,
+                  116,
+                  97
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "island"
+              }
+            ],
+            "program": {
+              "kind": "account",
+              "path": "delegation_program"
+            }
+          }
+        },
+        {
+          "name": "island",
+          "writable": true
+        },
+        {
+          "name": "owner_program",
+          "address": "9czd3zpazBa4fLBcNihWyKEgeKkZ4K8xEdoMWeY5Zj9b"
+        },
+        {
+          "name": "delegation_program",
+          "address": "DELeGGvXpWV2fqJUhqcF5ZSYMS4JTLjteaAMARRSaeSh"
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        }
+      ],
+      "args": [
+        {
+          "name": "_week_id",
+          "type": "u64"
+        },
+        {
+          "name": "island_idx",
+          "type": "u8"
+        }
+      ]
+    },
+    {
+      "name": "delegate_player",
+      "discriminator": [
+        235,
+        159,
+        245,
+        102,
+        161,
+        199,
+        254,
+        89
+      ],
+      "accounts": [
+        {
+          "name": "creator",
+          "writable": true,
+          "signer": true,
+          "relations": [
+            "week"
+          ]
+        },
+        {
+          "name": "week",
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  119,
+                  101,
+                  101,
+                  107
+                ]
+              },
+              {
+                "kind": "arg",
+                "path": "week_id"
+              }
+            ]
+          }
+        },
+        {
+          "name": "buffer_player",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  98,
+                  117,
+                  102,
+                  102,
+                  101,
+                  114
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "player"
+              }
+            ],
+            "program": {
+              "kind": "const",
+              "value": [
+                128,
+                21,
+                250,
+                6,
+                53,
+                216,
+                33,
+                99,
+                63,
+                141,
+                137,
+                130,
+                217,
+                77,
+                65,
+                34,
+                68,
+                164,
+                225,
+                98,
+                41,
+                213,
+                244,
+                148,
+                64,
+                32,
+                162,
+                24,
+                114,
+                246,
+                225,
+                58
+              ]
+            }
+          }
+        },
+        {
+          "name": "delegation_record_player",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  100,
+                  101,
+                  108,
+                  101,
+                  103,
+                  97,
+                  116,
+                  105,
+                  111,
+                  110
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "player"
+              }
+            ],
+            "program": {
+              "kind": "account",
+              "path": "delegation_program"
+            }
+          }
+        },
+        {
+          "name": "delegation_metadata_player",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  100,
+                  101,
+                  108,
+                  101,
+                  103,
+                  97,
+                  116,
+                  105,
+                  111,
+                  110,
+                  45,
+                  109,
+                  101,
+                  116,
+                  97,
+                  100,
+                  97,
+                  116,
+                  97
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "player"
+              }
+            ],
+            "program": {
+              "kind": "account",
+              "path": "delegation_program"
+            }
+          }
+        },
+        {
+          "name": "player",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  112,
+                  108,
+                  97,
+                  121,
+                  101,
+                  114
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "week"
+              },
+              {
+                "kind": "arg",
+                "path": "owner"
+              }
+            ]
+          }
+        },
+        {
+          "name": "owner_program",
+          "address": "9czd3zpazBa4fLBcNihWyKEgeKkZ4K8xEdoMWeY5Zj9b"
+        },
+        {
+          "name": "delegation_program",
+          "address": "DELeGGvXpWV2fqJUhqcF5ZSYMS4JTLjteaAMARRSaeSh"
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        }
+      ],
+      "args": [
+        {
+          "name": "_week_id",
+          "type": "u64"
+        },
+        {
+          "name": "owner",
+          "type": "pubkey"
+        }
+      ]
+    },
+    {
+      "name": "delegate_week",
+      "discriminator": [
+        126,
+        125,
+        237,
+        247,
+        144,
+        76,
+        182,
+        112
+      ],
+      "accounts": [
+        {
+          "name": "creator",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "buffer_week",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  98,
+                  117,
+                  102,
+                  102,
+                  101,
+                  114
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "week"
+              }
+            ],
+            "program": {
+              "kind": "const",
+              "value": [
+                128,
+                21,
+                250,
+                6,
+                53,
+                216,
+                33,
+                99,
+                63,
+                141,
+                137,
+                130,
+                217,
+                77,
+                65,
+                34,
+                68,
+                164,
+                225,
+                98,
+                41,
+                213,
+                244,
+                148,
+                64,
+                32,
+                162,
+                24,
+                114,
+                246,
+                225,
+                58
+              ]
+            }
+          }
+        },
+        {
+          "name": "delegation_record_week",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  100,
+                  101,
+                  108,
+                  101,
+                  103,
+                  97,
+                  116,
+                  105,
+                  111,
+                  110
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "week"
+              }
+            ],
+            "program": {
+              "kind": "account",
+              "path": "delegation_program"
+            }
+          }
+        },
+        {
+          "name": "delegation_metadata_week",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  100,
+                  101,
+                  108,
+                  101,
+                  103,
+                  97,
+                  116,
+                  105,
+                  111,
+                  110,
+                  45,
+                  109,
+                  101,
+                  116,
+                  97,
+                  100,
+                  97,
+                  116,
+                  97
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "week"
+              }
+            ],
+            "program": {
+              "kind": "account",
+              "path": "delegation_program"
+            }
+          }
+        },
+        {
+          "name": "week",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  119,
+                  101,
+                  101,
+                  107
+                ]
+              },
+              {
+                "kind": "arg",
+                "path": "week_id"
+              }
+            ]
+          }
+        },
+        {
+          "name": "owner_program",
+          "address": "9czd3zpazBa4fLBcNihWyKEgeKkZ4K8xEdoMWeY5Zj9b"
+        },
+        {
+          "name": "delegation_program",
+          "address": "DELeGGvXpWV2fqJUhqcF5ZSYMS4JTLjteaAMARRSaeSh"
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        }
+      ],
+      "args": [
+        {
+          "name": "week_id",
+          "type": "u64"
+        }
+      ]
+    },
+    {
+      "name": "done_buying",
+      "discriminator": [
+        147,
+        162,
+        227,
+        96,
+        169,
+        125,
+        255,
+        186
+      ],
+      "accounts": [
+        {
+          "name": "signer",
+          "signer": true
+        },
+        {
+          "name": "week",
+          "writable": true
+        },
+        {
+          "name": "rollup",
+          "accounts": [
+            {
+              "name": "permission_program",
+              "address": "ACLseoPoyC3cBqoUtkbjZ4aDrkurZW86v19pXz2XQnp1"
+            },
+            {
+              "name": "ephemeral_vault",
+              "writable": true,
+              "address": "MagicVau1t999999999999999999999999999999999"
+            },
+            {
+              "name": "magic_program",
+              "address": "Magic11111111111111111111111111111111111111"
+            }
+          ]
+        }
+      ],
+      "args": []
+    },
+    {
+      "name": "init_permissions",
+      "discriminator": [
+        247,
+        240,
+        133,
+        29,
+        26,
+        176,
+        185,
+        61
+      ],
+      "accounts": [
+        {
+          "name": "creator",
+          "signer": true,
+          "relations": [
+            "week"
+          ]
+        },
+        {
+          "name": "week"
+        },
+        {
+          "name": "rollup",
+          "accounts": [
+            {
+              "name": "permission_program",
+              "address": "ACLseoPoyC3cBqoUtkbjZ4aDrkurZW86v19pXz2XQnp1"
+            },
+            {
+              "name": "ephemeral_vault",
+              "writable": true,
+              "address": "MagicVau1t999999999999999999999999999999999"
+            },
+            {
+              "name": "magic_program",
+              "address": "Magic11111111111111111111111111111111111111"
+            }
+          ]
+        }
+      ],
+      "args": []
+    },
+    {
+      "name": "initialize",
+      "discriminator": [
+        175,
+        175,
+        109,
+        31,
+        13,
+        152,
+        155,
+        237
+      ],
+      "accounts": [],
+      "args": []
+    },
+    {
+      "name": "join",
+      "discriminator": [
+        206,
+        55,
+        2,
+        106,
+        113,
+        220,
+        17,
+        163
+      ],
+      "accounts": [
+        {
+          "name": "creator",
+          "writable": true,
+          "signer": true,
+          "relations": [
+            "week"
+          ]
+        },
+        {
+          "name": "owner",
+          "signer": true
+        },
+        {
+          "name": "week",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  119,
+                  101,
+                  101,
+                  107
+                ]
+              },
+              {
+                "kind": "arg",
+                "path": "week_id"
+              }
+            ]
+          },
+          "relations": [
+            "island"
+          ]
+        },
+        {
+          "name": "island",
+          "writable": true
+        },
+        {
+          "name": "player",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  112,
+                  108,
+                  97,
+                  121,
+                  101,
+                  114
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "week"
+              },
+              {
+                "kind": "account",
+                "path": "owner"
+              }
+            ]
+          }
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        }
+      ],
+      "args": [
+        {
+          "name": "_week_id",
+          "type": "u64"
+        }
+      ]
+    },
+    {
+      "name": "open_gate",
+      "discriminator": [
+        112,
+        13,
+        249,
+        29,
+        192,
+        252,
+        175,
+        108
+      ],
+      "accounts": [
+        {
+          "name": "owner",
+          "signer": true,
+          "relations": [
+            "island",
+            "owner_player"
+          ]
+        },
+        {
+          "name": "week",
+          "writable": true,
+          "relations": [
+            "island",
+            "owner_player",
+            "visitor_player"
+          ]
+        },
+        {
+          "name": "island",
+          "writable": true
+        },
+        {
+          "name": "owner_player",
+          "writable": true
+        },
+        {
+          "name": "visitor_player",
+          "writable": true
+        },
+        {
+          "name": "island_permission",
+          "writable": true
+        },
+        {
+          "name": "gate_pass",
+          "writable": true
+        },
+        {
+          "name": "gate_permission",
+          "writable": true
+        },
+        {
+          "name": "rollup",
+          "accounts": [
+            {
+              "name": "permission_program",
+              "address": "ACLseoPoyC3cBqoUtkbjZ4aDrkurZW86v19pXz2XQnp1"
+            },
+            {
+              "name": "ephemeral_vault",
+              "writable": true,
+              "address": "MagicVau1t999999999999999999999999999999999"
+            },
+            {
+              "name": "magic_program",
+              "address": "Magic11111111111111111111111111111111111111"
+            }
+          ]
+        }
+      ],
+      "args": [
+        {
+          "name": "visitor",
+          "type": "pubkey"
+        }
+      ]
+    },
+    {
+      "name": "open_sunday",
+      "discriminator": [
+        116,
+        154,
+        84,
+        55,
+        226,
+        186,
+        196,
+        70
+      ],
+      "accounts": [
+        {
+          "name": "creator",
+          "writable": true,
+          "signer": true,
+          "relations": [
+            "week"
+          ]
+        },
+        {
+          "name": "signer",
+          "signer": true
+        },
+        {
+          "name": "week",
+          "writable": true
+        },
+        {
+          "name": "rollup",
+          "accounts": [
+            {
+              "name": "permission_program",
+              "address": "ACLseoPoyC3cBqoUtkbjZ4aDrkurZW86v19pXz2XQnp1"
+            },
+            {
+              "name": "ephemeral_vault",
+              "writable": true,
+              "address": "MagicVau1t999999999999999999999999999999999"
+            },
+            {
+              "name": "magic_program",
+              "address": "Magic11111111111111111111111111111111111111"
+            }
+          ]
+        }
+      ],
+      "args": []
+    },
+    {
+      "name": "process_undelegation",
+      "discriminator": [
+        196,
+        28,
+        41,
+        206,
+        48,
+        37,
+        51,
+        167
+      ],
+      "accounts": [
+        {
+          "name": "base_account",
+          "writable": true
+        },
+        {
+          "name": "buffer",
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  117,
+                  110,
+                  100,
+                  101,
+                  108,
+                  101,
+                  103,
+                  97,
+                  116,
+                  101,
+                  45,
+                  98,
+                  117,
+                  102,
+                  102,
+                  101,
+                  114
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "base_account"
+              }
+            ],
+            "program": {
+              "kind": "const",
+              "value": [
+                181,
+                183,
+                0,
+                225,
+                242,
+                87,
+                58,
+                192,
+                204,
+                6,
+                34,
+                1,
+                52,
+                74,
+                207,
+                151,
+                184,
+                53,
+                6,
+                235,
+                140,
+                229,
+                25,
+                152,
+                204,
+                98,
+                126,
+                24,
+                147,
+                128,
+                167,
+                62
+              ]
+            }
+          }
+        },
+        {
+          "name": "payer",
+          "writable": true
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        }
+      ],
+      "args": [
+        {
+          "name": "account_seeds",
+          "type": {
+            "vec": "bytes"
+          }
+        }
+      ]
+    },
+    {
+      "name": "request_gate",
+      "discriminator": [
+        150,
+        26,
+        255,
+        15,
+        107,
+        234,
+        102,
+        45
+      ],
+      "accounts": [
+        {
+          "name": "signer",
+          "signer": true
+        },
+        {
+          "name": "week",
+          "relations": [
+            "player",
+            "island"
+          ]
+        },
+        {
+          "name": "player"
+        },
+        {
+          "name": "island",
+          "writable": true
+        }
+      ],
+      "args": [
+        {
+          "name": "island_idx",
+          "type": "u8"
+        }
+      ]
+    },
+    {
+      "name": "seed_islands",
+      "discriminator": [
+        220,
+        100,
+        31,
+        248,
+        40,
+        99,
+        250,
+        165
+      ],
+      "accounts": [
+        {
+          "name": "vrf_program_identity",
+          "signer": true,
+          "address": "3iHepQtMKqxejn7jySxQ6jG68FakgDy2MwfATtozGhPs"
+        },
+        {
+          "name": "week",
+          "writable": true
+        },
+        {
+          "name": "island0",
+          "writable": true
+        },
+        {
+          "name": "island1",
+          "writable": true
+        },
+        {
+          "name": "island2",
+          "writable": true
+        },
+        {
+          "name": "island3",
+          "writable": true
+        }
+      ],
+      "args": [
+        {
+          "name": "randomness",
+          "type": {
+            "array": [
+              "u8",
+              32
+            ]
+          }
+        },
+        {
+          "name": "week_id",
+          "type": "u64"
+        }
+      ]
+    },
+    {
+      "name": "sell",
+      "discriminator": [
+        51,
+        230,
+        133,
+        164,
+        1,
+        127,
+        131,
+        173
+      ],
+      "accounts": [
+        {
+          "name": "signer",
+          "signer": true
+        },
+        {
+          "name": "week",
+          "relations": [
+            "player",
+            "island"
+          ]
+        },
+        {
+          "name": "player",
+          "writable": true
+        },
+        {
+          "name": "island"
+        },
+        {
+          "name": "gate_pass"
+        }
+      ],
+      "args": [
+        {
+          "name": "island_idx",
+          "type": "u8"
+        },
+        {
+          "name": "qty",
+          "type": "u16"
+        }
+      ]
+    },
+    {
+      "name": "settle",
+      "discriminator": [
+        175,
+        42,
+        185,
+        87,
+        144,
+        131,
+        102,
+        212
+      ],
+      "accounts": [
+        {
+          "name": "payer",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "week",
+          "writable": true
+        },
+        {
+          "name": "magic_context",
+          "writable": true,
+          "address": "MagicContext1111111111111111111111111111111"
+        },
+        {
+          "name": "magic_program",
+          "address": "Magic11111111111111111111111111111111111111"
+        }
+      ],
+      "args": []
+    },
+    {
+      "name": "start_week",
+      "discriminator": [
+        135,
+        49,
+        113,
+        83,
+        218,
+        218,
+        193,
+        83
+      ],
+      "accounts": [
+        {
+          "name": "creator",
+          "writable": true,
+          "signer": true,
+          "relations": [
+            "week"
+          ]
+        },
+        {
+          "name": "week",
+          "writable": true
+        },
+        {
+          "name": "rollup",
+          "accounts": [
+            {
+              "name": "permission_program",
+              "address": "ACLseoPoyC3cBqoUtkbjZ4aDrkurZW86v19pXz2XQnp1"
+            },
+            {
+              "name": "ephemeral_vault",
+              "writable": true,
+              "address": "MagicVau1t999999999999999999999999999999999"
+            },
+            {
+              "name": "magic_program",
+              "address": "Magic11111111111111111111111111111111111111"
+            }
+          ]
+        },
+        {
+          "name": "oracle_queue",
+          "writable": true,
+          "address": "5hBR571xnXppuCPveTrctfTU7tJLSN94nq7kv7FRK5Tc"
+        },
+        {
+          "name": "program_identity",
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  105,
+                  100,
+                  101,
+                  110,
+                  116,
+                  105,
+                  116,
+                  121
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "vrf_program",
+          "address": "Vrf1RNUjXmQGjmQrQLvJHs9SNkvDJEsRVFPkfSQUwGz"
+        },
+        {
+          "name": "slot_hashes",
+          "address": "SysvarS1otHashes111111111111111111111111111"
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        }
+      ],
+      "args": []
+    },
+    {
+      "name": "tick",
+      "discriminator": [
+        92,
+        79,
+        44,
+        8,
+        101,
+        80,
+        63,
+        15
+      ],
+      "accounts": [
+        {
+          "name": "week",
+          "writable": true
+        },
+        {
+          "name": "rollup",
+          "accounts": [
+            {
+              "name": "permission_program",
+              "address": "ACLseoPoyC3cBqoUtkbjZ4aDrkurZW86v19pXz2XQnp1"
+            },
+            {
+              "name": "ephemeral_vault",
+              "writable": true,
+              "address": "MagicVau1t999999999999999999999999999999999"
+            },
+            {
+              "name": "magic_program",
+              "address": "Magic11111111111111111111111111111111111111"
+            }
+          ]
+        }
+      ],
+      "args": []
+    }
+  ],
+  "accounts": [
+    {
+      "name": "Island",
+      "discriminator": [
+        230,
+        114,
+        4,
+        188,
+        158,
+        90,
+        124,
+        157
+      ]
+    },
+    {
+      "name": "Player",
+      "discriminator": [
+        205,
+        222,
+        112,
+        7,
+        165,
+        155,
+        206,
+        218
+      ]
+    },
+    {
+      "name": "Week",
+      "discriminator": [
+        189,
+        31,
+        84,
+        251,
+        1,
+        211,
+        185,
+        155
+      ]
+    }
+  ],
+  "errors": [
+    {
+      "code": 6000,
+      "name": "BadTickInterval",
+      "msg": "Tick interval must be 5000, 10000, or 25000 milliseconds"
+    },
+    {
+      "code": 6001,
+      "name": "AccountMismatch",
+      "msg": "The supplied accounts do not belong to this week and island"
+    },
+    {
+      "code": 6002,
+      "name": "NotCreator",
+      "msg": "Only the week creator may perform this operation"
+    },
+    {
+      "code": 6003,
+      "name": "WrongPhase",
+      "msg": "This instruction is unavailable in the current phase"
+    },
+    {
+      "code": 6004,
+      "name": "AlreadyJoined",
+      "msg": "This session already owns an island"
+    },
+    {
+      "code": 6005,
+      "name": "WeekFull",
+      "msg": "All four islands are occupied"
+    },
+    {
+      "code": 6006,
+      "name": "WeekIncomplete",
+      "msg": "All four islands must be occupied before the week starts"
+    },
+    {
+      "code": 6007,
+      "name": "DelegateWeekLast",
+      "msg": "Delegate all islands and players before delegating the week"
+    },
+    {
+      "code": 6008,
+      "name": "PermissionsMissing",
+      "msg": "Every island and player must have a private permission before starting"
+    },
+    {
+      "code": 6009,
+      "name": "VrfPending",
+      "msg": "Wait for the outstanding VRF request before retrying"
+    },
+    {
+      "code": 6010,
+      "name": "BuyCap",
+      "msg": "Buy quantity must be between 1 and 100 Rots"
+    },
+    {
+      "code": 6011,
+      "name": "AlreadyBought",
+      "msg": "You already bought Rots this week"
+    },
+    {
+      "code": 6012,
+      "name": "InsufficientCoins",
+      "msg": "This player has insufficient coins"
+    },
+    {
+      "code": 6013,
+      "name": "InsufficientRots",
+      "msg": "This player has insufficient Rots"
+    },
+    {
+      "code": 6014,
+      "name": "PassLimit",
+      "msg": "This player has already used three gate passes this week"
+    },
+    {
+      "code": 6015,
+      "name": "GateFull",
+      "msg": "This island already has three visitors"
+    },
+    {
+      "code": 6016,
+      "name": "InvalidVisit",
+      "msg": "The human player can visit house islands"
+    },
+    {
+      "code": 6017,
+      "name": "GateAlreadyRequested",
+      "msg": "This gate request or pass already exists"
+    },
+    {
+      "code": 6018,
+      "name": "NoGateRequest",
+      "msg": "There is no pending request for this visitor"
+    },
+    {
+      "code": 6019,
+      "name": "NotIslandOwner",
+      "msg": "Only the island owner may manage its gate"
+    },
+    {
+      "code": 6020,
+      "name": "NoGatePass",
+      "msg": "You need a live gate pass to sell at this island"
+    },
+    {
+      "code": 6021,
+      "name": "BadSellQuantity",
+      "msg": "Sell quantity must be positive"
+    },
+    {
+      "code": 6022,
+      "name": "CoinOverflow",
+      "msg": "Coin arithmetic overflowed"
+    },
+    {
+      "code": 6023,
+      "name": "NotHumanPlayer",
+      "msg": "Only the human player may open or finish Sunday"
+    }
+  ],
+  "types": [
+    {
+      "name": "Island",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "week",
+            "type": "pubkey"
+          },
+          {
+            "name": "idx",
+            "type": "u8"
+          },
+          {
+            "name": "owner",
+            "type": "pubkey"
+          },
+          {
+            "name": "pattern",
+            "type": "u8"
+          },
+          {
+            "name": "sunday_price",
+            "type": "u16"
+          },
+          {
+            "name": "prices",
+            "type": {
+              "array": [
+                "u16",
+                12
+              ]
+            }
+          },
+          {
+            "name": "gate_requested",
+            "type": "bool"
+          },
+          {
+            "name": "bump",
+            "type": "u8"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Phase",
+      "type": {
+        "kind": "enum",
+        "variants": [
+          {
+            "name": "Lobby"
+          },
+          {
+            "name": "Sunday"
+          },
+          {
+            "name": "Trading"
+          },
+          {
+            "name": "Rotted"
+          },
+          {
+            "name": "Settled"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Player",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "week",
+            "type": "pubkey"
+          },
+          {
+            "name": "owner",
+            "type": "pubkey"
+          },
+          {
+            "name": "island_idx",
+            "type": "u8"
+          },
+          {
+            "name": "coins",
+            "type": "u64"
+          },
+          {
+            "name": "rots",
+            "type": "u16"
+          },
+          {
+            "name": "bought",
+            "type": "bool"
+          },
+          {
+            "name": "passes_used",
+            "type": "u8"
+          },
+          {
+            "name": "bump",
+            "type": "u8"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Score",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "owner",
+            "type": "pubkey"
+          },
+          {
+            "name": "coins",
+            "type": "u64"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Week",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "id",
+            "type": "u64"
+          },
+          {
+            "name": "creator",
+            "type": "pubkey"
+          },
+          {
+            "name": "phase",
+            "type": {
+              "defined": {
+                "name": "Phase"
+              }
+            }
+          },
+          {
+            "name": "tick",
+            "type": "u8"
+          },
+          {
+            "name": "tick_ms",
+            "type": "u32"
+          },
+          {
+            "name": "start_ts",
+            "type": "i64"
+          },
+          {
+            "name": "sunday_end_ts",
+            "type": "i64"
+          },
+          {
+            "name": "next_tick_ts",
+            "type": "i64"
+          },
+          {
+            "name": "islands",
+            "type": {
+              "array": [
+                "pubkey",
+                4
+              ]
+            }
+          },
+          {
+            "name": "owners",
+            "type": {
+              "array": [
+                "pubkey",
+                4
+              ]
+            }
+          },
+          {
+            "name": "players",
+            "type": {
+              "array": [
+                "pubkey",
+                4
+              ]
+            }
+          },
+          {
+            "name": "gates_open",
+            "type": {
+              "array": [
+                "u8",
+                4
+              ]
+            }
+          },
+          {
+            "name": "vrf_requested",
+            "type": "bool"
+          },
+          {
+            "name": "vrf_requested_ts",
+            "type": "i64"
+          },
+          {
+            "name": "seeded",
+            "type": "bool"
+          },
+          {
+            "name": "crank_task_id",
+            "type": "u64"
+          },
+          {
+            "name": "scoreboard",
+            "type": {
+              "array": [
+                {
+                  "defined": {
+                    "name": "Score"
+                  }
+                },
+                4
+              ]
+            }
+          },
+          {
+            "name": "bump",
+            "type": "u8"
+          }
+        ]
+      }
+    }
+  ]
+}
